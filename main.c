@@ -1,19 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-
-typedef struct libros{
-    char titulo[50];
-    char autor[50];
-    int anio;
-    int estante_numero;
-    char estante_seccion[50];
-    int piso;
-    char edificio[4];
-    char sede[50];
-    int borrar_libro;
-}biblioteca;
-
+#include "libro.h"
 
 int opcion;
 biblioteca parametros[999];
@@ -215,7 +203,6 @@ void eliminar_libro(char *argv[]){
         FILE *fp_eliminar = fopen(argv[1], "w");
         fprintf(fp_eliminar, "titulo,autor,anio,estante_numero,estante_seccion,piso,edificio,sede\n");
         for (int n = 0; n < row_count-1; n++){
-            printf("%d", parametros[n].titulo);
             if (strcmp(titulo_eliminar, parametros[n].titulo) == 0){
                 parametros[n].borrar_libro = 1;
             }
